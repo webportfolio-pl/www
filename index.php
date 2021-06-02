@@ -1,6 +1,6 @@
 <?php
 /*
- * https://www.webtest.pl/index.php?domain=softreck.com
+ * https://www.WebPortfolio.pl/index.php?domain=softreck.com
  * http://localhost:8080/index.php?domain=softreck.com
  */
 require("post.php");
@@ -11,7 +11,7 @@ require("post.php");
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <!--    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">-->
 
-    <title>WebTest.pl - Let's test Your domains</title>
+    <title>WebPortfolio.pl</title>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -33,12 +33,10 @@ require("post.php");
         </div>
         <br/>
         <input type="submit" name="multi" value="All" class="btn btn-info btn-lg"/>
-        <!--        <input type="submit" name="screen" value="Screenshot" class="btn btn-info btn-lg"/>-->
         <input type="submit" name="dns" value="DNS" class="btn btn-info btn-lg"/>
         <input type="submit" name="whois" value="WHOIS" class="btn btn-info btn-lg"/>
         <input type="submit" name="registered" value="REGISTERED" class="btn btn-info btn-lg"/>
         <input type="submit" name="latency" value="LATENCY" class="btn btn-info btn-lg"/>
-<!--        <input type="submit" name="not_exist" value="NOT EXIST" class="btn btn-info btn-lg"/>-->
     </form>
     <br/>
     <?php
