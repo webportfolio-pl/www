@@ -22,7 +22,7 @@ require("post.php");
 <body>
 <div class="container box">
 
-    <h1 class="center">WebTest.pl</h1>
+    <h1 class="center">WebPortfolio.pl</h1>
     <p class="center">Test domains, websites & webservices</p>
     <hr>
     <form method="post">
