@@ -23,11 +23,12 @@ require("post.php");
 <div class="container box">
 
     <h1 class="center">WebPortfolio.pl</h1>
+    <h2 class="small">Manage your all domains from many different registrar togheter</h2>
 
     <form method="post">
         <fieldset>
 
-            <legend>Save Domains to Managing</legend>
+            <legend>DNS</legend>
 
             <label for="domains">
                 1. Enter domain names with nameservers at point no. 2
@@ -57,9 +58,9 @@ require("post.php");
             * after set cursor on this field copy to clipboard will be automatically
             <br/>
 
-            <input type="text" class="nameserver" id="ns1" name="ns1" value="<?php echo $_POST["ns1"]; ?>"/>*
-            <input type="text" class="nameserver" id="ns2" name="ns2" value="<?php echo $_POST["ns2"]; ?>"/>*
-            <input type="text" class="nameserver" id="ns3" name="ns3" value="<?php echo $_POST["ns3"]; ?>"/>*
+            <input type="text" class="nameserver" id="ns1" name="ns1" value="<?php echo $_POST["ns1"]; ?>" readonly/>*
+            <input type="text" class="nameserver" id="ns2" name="ns2" value="<?php echo $_POST["ns2"]; ?>" readonly/>*
+            <input type="text" class="nameserver" id="ns3" name="ns3" value="<?php echo $_POST["ns3"]; ?>" readonly/>*
 
             <script>
                 // https://javascript.info/events-change-input
@@ -107,6 +108,9 @@ require("post.php");
             <br/>
             <br/>
 
+            <legend>VERIFICATION</legend>
+
+
             <label for="email">
                 4. Enter Email:
             </label>
@@ -136,6 +140,8 @@ require("post.php");
             <!--            <input type="submit" name="monitoring" value="monitoring" id="monitoring" class="btn btn-info btn-lg"/>-->
             <br/>
             <br/>
+
+            <legend>MONITORING</legend>
 
             <label for="monitoring">
                 7. Show status of domains:
