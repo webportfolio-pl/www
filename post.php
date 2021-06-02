@@ -53,8 +53,13 @@ try {
 //        if (isset($_POST["monitoring"])) {
         if (isset($_POST["verification"])) {
 
+            if(empty($_POST["code"])){
+                throw new Exception("CODE is empty");
+            } else {
+                $html = "Verificated OK";
+            }
+//            $html = "Not";
 
-            $html = "Verificated OK";
 
             $domain_nameserver_list = each_func($domain_list, function ($url) {
 
@@ -109,9 +114,7 @@ try {
 
 
         } else if (isset($_POST["send"])) {
-            if(empty($_POST["code"])){
-                throw new Exception("CODE is empty");
-            }
+
 
 //            $html = "Code is VALID";
             $html = "Check Code is EMAIL Message, 10 Charts with numbers";
