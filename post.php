@@ -7,7 +7,8 @@ $html = '';
 $dns_url_list = '';
 
 if (empty($_POST["domains"])) {
-    $_POST["domains"] = "softreck.com";
+    $_POST["domains"] = "softreck.pl
+softreck.com";
 }
 $_POST["ns1"] = "ns1.digitalocean.com";
 $_POST["ns2"] = "ns2.digitalocean.com";

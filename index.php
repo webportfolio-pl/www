@@ -31,7 +31,7 @@ require("post.php");
             <legend>DNS</legend>
 
             <label for="domains">
-                1. Enter domain names with nameservers at point no. 2
+                1. Enter domain names with nameservers at point no. 3
             </label>
             <textarea name="domains" id="domains" cols="75" rows="20"><?php echo $_POST["domains"] ?></textarea>
             <br/>
@@ -41,7 +41,7 @@ require("post.php");
                 2. Show url to panel where domain is registered:
             </label>
             <br/>
-            <input type="submit" name="change_dns" value="Change DNS" id="change_dns" class="btn btn-info btn-lg"/>
+            <input type="submit" name="change_dns" value="Show URLs to Change DNS" id="change_dns" class="btn btn-info btn-lg"/>
             <br/>
             <br/>
             <?php
