@@ -69,7 +69,7 @@ try {
                 $domain = get_domain_by_url($url);
 
                 return "
- <br><div>
+ <div>
     <a class='dns' href='https://domain-dns.parkingomat.pl/get.php?domain=$domain' target='_blank'> $domain </a>
     REG-DNS:
     <a class='registrar' href='https://premium.pl/domain/changens.html?name=$domain&type=domain' target='_blank'> PREMIUM </a>
