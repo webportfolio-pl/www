@@ -12,6 +12,7 @@ if (empty($_POST["domains"])) {
 
 try {
 
+
     apifunc([
         'https://php.letjson.com/let_json.php',
         'https://php.defjson.com/def_json.php',
@@ -36,85 +37,44 @@ try {
             throw new Exception("domain list is empty");
         }
 
-        $domain_nameserver_list = each_func($domain_list, function ($url) {
 
-            if (empty($url)) return null;
+        if(empty($_POST["email"])){
+            throw new Exception("EMAIL is empty");
+        }
 
-            $url = clean_url($url);
-
-            if (empty($url)) return null;
-
-            if (!(strpos($url, "http://") === 0) && !(strpos($url, "https://") === 0)) {
-                $url = "http://" . $url;
-            }
-
-            $domain = get_domain_by_url($url);
-
-            if (isset($_POST["latency"])) {
-
-                return "
- <div>
-    <a href='$url' target='_blank'> $domain</a> 
-    -
-    <a class='latency' href='https://www.latency.pl/latency.php?domain=$domain' target='_blank'> - </a>
-</div>
-            ";
-
-            } else if (isset($_POST["not_exist"])) {
-
-                return "
- <div>
-    <p>   
-        <a class='not_exist' href='https://whois.webtest.pl/index.php?domain=$domain' target='_blank'> $domain </a>
-    </p>
- </div>
-            ";
-
-            } else if (isset($_POST["whois"])) {
-                return "
- <div>
-    <a href='$url' target='_blank'> $domain</a> 
-    -
-    <a class='whois' href='https://whois.wolnadomena.pl/whois.php?domain=$domain' target='_blank'> - </a>
-</div>
-            ";
-            } else if (isset($_POST["registered"])) {
+        if(empty($_POST["code"])){
+            throw new Exception("CODE is empty");
+        }
 
 
-                return "
- <div>
-    <a href='$url' target='_blank'> $domain</a> 
-    -
-    <a class='registered' href='https://www.wolnadomena.pl/registered.php?domain=$domain' target='_blank'> - </a>
-</div>
-            ";
+        global $html;
 
-            } else if (isset($_POST["whois"])) {
-                return "
- <div>
-    <a href='$url' target='_blank'> $domain</a> 
-    -
-    <a class='whois' href='https://www.wolnadomena.pl/whois.php?domain=$domain' target='_blank'> - </a>
-</div>
-            ";
-
-            } else if (isset($_POST["dns"])) {
-
-                return "
- <div>
-    <a href='$url' target='_blank'> $domain</a> 
-    - 
-    <a class='dns' href='https://domain-dns.parkingomat.pl/get.php?domain=$domain' target='_blank'> - </a>
-</div>
-            ";
-
-            } else if (isset($_POST["multi"])) {
+        if (isset($_POST["monitoring"])) {
 
 
-                $urle = urlencode($url);
-                $url_screen = "http://webscreen.pl:3000/url/{$urle}";
+            $html = "Verificated OK";
 
-                return "
+            $domain_nameserver_list = each_func($domain_list, function ($url) {
+
+                if (empty($url)) return null;
+
+                $url = clean_url($url);
+
+                if (empty($url)) return null;
+
+                if (!(strpos($url, "http://") === 0) && !(strpos($url, "https://") === 0)) {
+                    $url = "http://" . $url;
+                }
+
+                $domain = get_domain_by_url($url);
+
+                if (isset($_POST["send"])) {
+
+
+                    $urle = urlencode($url);
+                    $url_screen = "http://webscreen.pl:3000/url/{$urle}";
+
+                    return "
  <br><div>
     SCREEN: <a href='$url_screen' target='_blank'> $url</a>
     <br>
@@ -138,14 +98,20 @@ try {
     <iframe src='$url' title='$domain'></iframe> 
 </div>
             ";
-            }
+                }
 
 
-        });
+            });
 
-        global $html;
+            $html .= implode("<br>", $domain_nameserver_list);
 
-        $html = implode("<br>", $domain_nameserver_list);
+
+        } else if (isset($_POST["send"])) {
+//            $html = "Code is VALID";
+            $html = "Check Code is EMAIL Message, 10 Charts with numbers";
+        }
+
+
 
     });
 
