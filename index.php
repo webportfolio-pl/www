@@ -53,6 +53,11 @@ $_POST["ns3"] = "ns3.digitalocean.com";
             <input type="text" class="nameserver" id="ns3" name="ns3" value="<?php echo $_POST["ns3"]; ?>" />*
 
             <script>
+                // https://javascript.info/events-change-input
+                // https://whatwebcando.today/clipboard.html
+                // https://www.group-office.com/blog/post?id=6650328555423695690
+                // https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event
+
                 // ['cut', 'copy', 'paste'].forEach(function(event) {
                 //     document.addEventListener(event, function(e) {
                 //         console.log(event);
