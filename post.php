@@ -110,7 +110,7 @@ try {
 
             });
 
-            $html .= implode("<br>", $domain_nameserver_list);
+            $html = implode("<br>", $domain_nameserver_list);
 
 
         } else if (isset($_POST["send"])) {
