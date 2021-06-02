@@ -42,10 +42,9 @@ try {
         }
 
 
-        if(empty($_POST["email"])){
+        if (empty($_POST["email"])) {
             throw new Exception("EMAIL is empty");
         }
-
 
 
         global $html;
@@ -53,7 +52,7 @@ try {
 //        if (isset($_POST["monitoring"])) {
         if (isset($_POST["verification"])) {
 
-            if(empty($_POST["code"])){
+            if (empty($_POST["code"])) {
                 throw new Exception("CODE is empty");
             } else {
                 $html = "Verificated OK";
@@ -75,13 +74,10 @@ try {
 
                 $domain = get_domain_by_url($url);
 
-                if (isset($_POST["send"])) {
+                $urle = urlencode($url);
+                $url_screen = "http://webscreen.pl:3000/url/{$urle}";
 
-
-                    $urle = urlencode($url);
-                    $url_screen = "http://webscreen.pl:3000/url/{$urle}";
-
-                    return "
+                return "
  <br><div>
     SCREEN: <a href='$url_screen' target='_blank'> $url</a>
     <br>
@@ -105,8 +101,6 @@ try {
     <iframe src='$url' title='$domain'></iframe> 
 </div>
             ";
-                }
-
 
             });
 
@@ -120,10 +114,7 @@ try {
             $html = "Check Code is EMAIL Message, 10 Charts with numbers";
         }
 
-
-
     });
-
 
 } catch (Exception $e) {
     // Set HTTP response status code to: 500 - Internal Server Error
