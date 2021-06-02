@@ -53,7 +53,8 @@ try {
 
         global $html;
 
-        if (isset($_POST["monitoring"])) {
+//        if (isset($_POST["monitoring"])) {
+        if (isset($_POST["verification"])) {
 
 
             $html = "Verificated OK";

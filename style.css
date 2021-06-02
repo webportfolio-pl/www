@@ -1,3 +1,9 @@
+.footer {
+    background-color: #dddddd;
+    border-width: 1px;
+    border-color: gray;
+
+}
 input {
     border-width: 1px;
     border-color: gray;

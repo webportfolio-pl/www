@@ -43,9 +43,9 @@ require("post.php");
             * after set cursor on this field copy to clipboard will be automatically
             <br/>
 
-            <input type="text" class="nameserver" id="ns1" name="ns1" value="<?php echo $_POST["ns1"]; ?>" />*
-            <input type="text" class="nameserver" id="ns2" name="ns2" value="<?php echo $_POST["ns2"]; ?>" />*
-            <input type="text" class="nameserver" id="ns3" name="ns3" value="<?php echo $_POST["ns3"]; ?>" />*
+            <input type="text" class="nameserver" id="ns1" name="ns1" value="<?php echo $_POST["ns1"]; ?>"/>*
+            <input type="text" class="nameserver" id="ns2" name="ns2" value="<?php echo $_POST["ns2"]; ?>"/>*
+            <input type="text" class="nameserver" id="ns3" name="ns3" value="<?php echo $_POST["ns3"]; ?>"/>*
 
             <script>
                 // https://javascript.info/events-change-input
@@ -66,7 +66,7 @@ require("post.php");
                 console.log(inputs);
                 inputs.forEach(function (el) {
 
-                    el.onclick = function(event) {
+                    el.onclick = function (event) {
                         console.log(event);
                         copyNamesever(el);
                         this.classList.add('green');
@@ -74,7 +74,7 @@ require("post.php");
                     };
                 });
 
-                function copyNamesever(el){
+                function copyNamesever(el) {
                     // var textArea = document.createElement("textarea");
                     // var textArea = document.getElementById("domains");
                     el.select();
@@ -115,16 +115,19 @@ require("post.php");
                 5. Enter Code from Email:
             </label>
             <br/>
+            <input type="text" id="code" name="code" value="<?php echo $_POST["code"]; ?>">
+            <br/>
 
-            <input type="text" id="code" name="code" value="">
+            <input type="submit" name="verification" value="Verify Code" id="verification" class="btn btn-info btn-lg"/>
+            <!--            <input type="submit" name="monitoring" value="monitoring" id="monitoring" class="btn btn-info btn-lg"/>-->
+            <br/>
+            <br/>
 
-            <label for="send">
-                6. Go to monitoring:
+            <label for="monitoring">
+                7. Show status of domains:
             </label>
             <br/>
-            <input type="submit" name="monitoring" value="monitoring" class="btn btn-info btn-lg"/>
-            <br/>
-            <br/>
+
 
         </fieldset>
 
@@ -136,40 +139,46 @@ require("post.php");
     global $html;
     echo $html;
     ?>
+
+    <hr>
+    <div class="footer">
+
+        <div>
+            API webscreen:
+            <a href="http://webscreen.pl:3000/remove/png" target='_blank'> remove png </a>
+            |
+            <a href="http://webscreen.pl:3000/remove/txt" target='_blank'> remove txt </a>
+
+        </div>
+
+        <div>
+            DEV:
+            <a href="https://github.com/webportfolio-pl/www" target='_blank'>source code</a>
+            |
+            <a href="https://www.webportfolio.pl/" target='_blank'> production </a>
+            |
+            <a href="http://localhost:8080/" target='_blank'> localhost </a>
+
+        </div>
+
+        <div>
+            Supported by:
+            <a href="https://softreck.com" target='_blank'>softreck.com</a>
+            |
+            <a href="https://softreck.pl" target='_blank'>softreck.pl</a>
+            |
+            <a href="https://www.webstream.dev" target='_blank'>webstream.dev</a>
+            |
+            <a href="https://www.apifunc.com" target='_blank'>apifunc.com</a>
+
+        </div>
+    </div>
 </div>
 <div style="clear:both"></div>
 <br/>
 <hr>
 <div class="center">
-    <div>
-        API webscreen:
-        <a href="http://webscreen.pl:3000/remove/png" target='_blank'> remove png </a>
-        |
-        <a href="http://webscreen.pl:3000/remove/txt" target='_blank'> remove txt </a>
 
-    </div>
-
-    <div>
-        DEV:
-        <a href="https://github.com/webportfolio-pl/www" target='_blank'>source code</a>
-        |
-        <a href="https://www.webportfolio.pl/" target='_blank'> production </a>
-        |
-        <a href="http://localhost:8080/" target='_blank'> localhost </a>
-
-    </div>
-
-    <div>
-        Supported by:
-        <a href="https://softreck.com" target='_blank'>softreck.com</a>
-        |
-        <a href="https://softreck.pl" target='_blank'>softreck.pl</a>
-        |
-        <a href="https://www.webstream.dev" target='_blank'>webstream.dev</a>
-        |
-        <a href="https://www.apifunc.com" target='_blank'>apifunc.com</a>
-
-    </div>
 </div>
 
 
@@ -179,27 +188,27 @@ require("post.php");
 
 
     //
-//    const copyToClipboard = str => {
-//        const el = document.createElement('textarea');
-//        el.value = str;
-//        el.setAttribute('readonly', '');
-//        el.style.position = 'absolute';
-//        el.style.left = '-9999px';
-//        document.body.appendChild(el);
-//        el.select();
-//        document.execCommand('copy');
-//        document.body.removeChild(el);
-//    };
-//
-//    //////  paste
-//    function paste() {
-//        var pasteText = document.querySelector("#email");
-//        pasteText.focus();
-//        document.execCommand("paste");
-//        console.log(pasteText.textContent);
-//    }
-//
-//    document.querySelector("#domains").addEventListener("click", paste);
+    //    const copyToClipboard = str => {
+    //        const el = document.createElement('textarea');
+    //        el.value = str;
+    //        el.setAttribute('readonly', '');
+    //        el.style.position = 'absolute';
+    //        el.style.left = '-9999px';
+    //        document.body.appendChild(el);
+    //        el.select();
+    //        document.execCommand('copy');
+    //        document.body.removeChild(el);
+    //    };
+    //
+    //    //////  paste
+    //    function paste() {
+    //        var pasteText = document.querySelector("#email");
+    //        pasteText.focus();
+    //        document.execCommand("paste");
+    //        console.log(pasteText.textContent);
+    //    }
+    //
+    //    document.querySelector("#domains").addEventListener("click", paste);
 
     /////////    Or    /////////
 
@@ -220,74 +229,74 @@ require("post.php");
     //
     // navigator.clipboard.readText().then(clipText =>
     //     document.getElementById("outbox").innerText = clipText);
-/*
-    function copyTextToClipboard(text) {
-        var textArea = document.createElement("textarea");
+    /*
+        function copyTextToClipboard(text) {
+            var textArea = document.createElement("textarea");
 
-        //
-        // *** This styling is an extra step which is likely not required. ***
-        //
-        // Why is it here? To ensure:
-        // 1. the element is able to have focus and selection.
-        // 2. if element was to flash render it has minimal visual impact.
-        // 3. less flakyness with selection and copying which **might** occur if
-        //    the textarea element is not visible.
-        //
-        // The likelihood is the element won't even render, not even a flash,
-        // so some of these are just precautions. However in IE the element
-        // is visible whilst the popup box asking the user for permission for
-        // the web page to copy to the clipboard.
-        //
+            //
+            // *** This styling is an extra step which is likely not required. ***
+            //
+            // Why is it here? To ensure:
+            // 1. the element is able to have focus and selection.
+            // 2. if element was to flash render it has minimal visual impact.
+            // 3. less flakyness with selection and copying which **might** occur if
+            //    the textarea element is not visible.
+            //
+            // The likelihood is the element won't even render, not even a flash,
+            // so some of these are just precautions. However in IE the element
+            // is visible whilst the popup box asking the user for permission for
+            // the web page to copy to the clipboard.
+            //
 
-        // Place in top-left corner of screen regardless of scroll position.
-        textArea.style.position = 'fixed';
-        textArea.style.top = 0;
-        textArea.style.left = 0;
+            // Place in top-left corner of screen regardless of scroll position.
+            textArea.style.position = 'fixed';
+            textArea.style.top = 0;
+            textArea.style.left = 0;
 
-        // Ensure it has a small width and height. Setting to 1px / 1em
-        // doesn't work as this gives a negative w/h on some browsers.
-        textArea.style.width = '2em';
-        textArea.style.height = '2em';
+            // Ensure it has a small width and height. Setting to 1px / 1em
+            // doesn't work as this gives a negative w/h on some browsers.
+            textArea.style.width = '2em';
+            textArea.style.height = '2em';
 
-        // We don't need padding, reducing the size if it does flash render.
-        textArea.style.padding = 0;
+            // We don't need padding, reducing the size if it does flash render.
+            textArea.style.padding = 0;
 
-        // Clean up any borders.
-        textArea.style.border = 'none';
-        textArea.style.outline = 'none';
-        textArea.style.boxShadow = 'none';
+            // Clean up any borders.
+            textArea.style.border = 'none';
+            textArea.style.outline = 'none';
+            textArea.style.boxShadow = 'none';
 
-        // Avoid flash of white box if rendered for any reason.
-        textArea.style.background = 'transparent';
+            // Avoid flash of white box if rendered for any reason.
+            textArea.style.background = 'transparent';
 
 
-        textArea.value = text;
+            textArea.value = text;
 
-        document.body.appendChild(textArea);
+            document.body.appendChild(textArea);
 
-        textArea.select();
+            textArea.select();
 
-        try {
-            var successful = document.execCommand('copy');
-            var msg = successful ? 'successful' : 'unsuccessful';
-            console.log('Copying text command was ' + msg);
-        } catch (err) {
-            console.log('Oops, unable to copy');
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+
+            document.body.removeChild(textArea);
         }
 
-        document.body.removeChild(textArea);
-    }
-
-    document.addEventListener('keydown', function(event) {
-        var ms = 800;
-        var start = new Date().getTime();
-        var end = start;
-        while(end < start + ms) {
-            end = new Date().getTime();
-        }
-        copyTextToClipboard('echo "evil"\n');
-    });
-    */
+        document.addEventListener('keydown', function(event) {
+            var ms = 800;
+            var start = new Date().getTime();
+            var end = start;
+            while(end < start + ms) {
+                end = new Date().getTime();
+            }
+            copyTextToClipboard('echo "evil"\n');
+        });
+        */
     // function handlePaste (e) {
     //     var clipboardData, pastedData;
     //
