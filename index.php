@@ -4,11 +4,6 @@
  * http://localhost:8080/index.php?domain=softreck.com
  */
 require("post.php");
-$_POST["ns1"] = "ns1.digitalocean.com";
-$_POST["ns2"] = "ns2.digitalocean.com";
-$_POST["ns3"] = "ns3.digitalocean.com";
-//$_POST["email"] = "test@test.com";
-
 ?>
 
 <html>

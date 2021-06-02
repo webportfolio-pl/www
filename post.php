@@ -9,6 +9,10 @@ $html = '';
 if (empty($_POST["domains"])) {
     $_POST["domains"] = "softreck.com";
 }
+$_POST["ns1"] = "ns1.digitalocean.com";
+$_POST["ns2"] = "ns2.digitalocean.com";
+$_POST["ns3"] = "ns3.digitalocean.com";
+//$_POST["email"] = "test@test.com";
 
 try {
 
