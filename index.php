@@ -36,8 +36,22 @@ require("post.php");
             <br/>
             <br/>
 
+            <label for="change_dns">
+                2. Show url to panel where domain is registered:
+            </label>
+            <br/>
+            <input type="submit" name="change_dns" value="Change DNS" id="change_dns" class="btn btn-info btn-lg"/>
+            <br/>
+            <br/>
+            <?php
+            global $dns_url_list;
+            echo $dns_url_list;
+            ?>
+            <br/>
+
+
             <label>
-                2. Set NameServers for your domains
+                3. Set NameServers for your domains
             </label>
             <br>
             * after set cursor on this field copy to clipboard will be automatically
@@ -94,7 +108,7 @@ require("post.php");
             <br/>
 
             <label for="email">
-                3. Enter Email:
+                4. Enter Email:
             </label>
             <br/>
             <input type="email" id="email" name="email" value="<?php echo $_POST["email"]; ?>">
@@ -103,16 +117,16 @@ require("post.php");
 
 
             <label for="send">
-                4. Receive Email with code:
+                5. Receive Email with code:
             </label>
             <br/>
-            <input type="submit" name="send" value="Receive E-Mail" class="btn btn-info btn-lg"/>
+            <input type="submit" name="send" id="send" value="Receive E-Mail" class="btn btn-info btn-lg"/>
             <br/>
             <br/>
 
 
             <label for="code">
-                5. Enter Code from Email:
+                6. Enter Code from Email:
             </label>
             <br/>
             <input type="text" id="code" name="code" value="<?php echo $_POST["code"]; ?>">

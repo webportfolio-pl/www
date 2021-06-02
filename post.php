@@ -4,7 +4,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 require("apifunc.php");
 $html = '';
-
+$dns_url_list = '';
 
 if (empty($_POST["domains"])) {
     $_POST["domains"] = "softreck.com";
@@ -47,10 +47,43 @@ try {
         }
 
 
+        global $dns_url_list;
         global $html;
 
 //        if (isset($_POST["monitoring"])) {
-        if (isset($_POST["verification"])) {
+        if (isset($_POST["change_dns"])) {
+
+
+            $domain_nameserver_list = each_func($domain_list, function ($url) {
+
+                if (empty($url)) return null;
+
+                $url = clean_url($url);
+
+                if (empty($url)) return null;
+
+                if (!(strpos($url, "http://") === 0) && !(strpos($url, "https://") === 0)) {
+                    $url = "http://" . $url;
+                }
+
+                $domain = get_domain_by_url($url);
+
+                return "
+ <br><div>
+    <a class='dns' href='https://domain-dns.parkingomat.pl/get.php?domain=$domain' target='_blank'> $domain </a>
+    REG-DNS:
+    <a class='registrar' href='https://premium.pl/domain/changens.html?name=$domain&type=domain' target='_blank'> PREMIUM </a>
+    <a class='registrar' href='https://www.aftermarket.pl/Domain/NS/?domain=$domain' target='_blank'> AFTERMARKET </a>
+    
+</div>
+            ";
+
+            });
+
+            $dns_url_list = implode("<br>", $domain_nameserver_list);
+
+
+        } else if (isset($_POST["verification"])) {
 
             if (empty($_POST["code"])) {
                 throw new Exception("CODE is empty");
