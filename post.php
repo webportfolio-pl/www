@@ -46,9 +46,6 @@ try {
             throw new Exception("EMAIL is empty");
         }
 
-        if(empty($_POST["code"])){
-            throw new Exception("CODE is empty");
-        }
 
 
         global $html;
@@ -112,6 +109,10 @@ try {
 
 
         } else if (isset($_POST["send"])) {
+            if(empty($_POST["code"])){
+                throw new Exception("CODE is empty");
+            }
+
 //            $html = "Code is VALID";
             $html = "Check Code is EMAIL Message, 10 Charts with numbers";
         }
