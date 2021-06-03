@@ -42,6 +42,7 @@ try {
 //        $email->from($_POST['address'], $_POST['message'], $_POST['receiver'], $_POST['sender'], $_POST['subject']);
 //        $email->fromArray([$address, $message]);
 
+        //create Email Objct from Array with Atrtributes
         $sendEmail = new SendEmail($email);
         $sendEmail->send();
 

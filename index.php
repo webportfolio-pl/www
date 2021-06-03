@@ -37,7 +37,7 @@ require("post.php");
     <h1 class="center">WebPortfolio.pl</h1>
     <h2 class="small">Manage your all domains from many different registrar togheter</h2>
 
-    <form method="post" action="domains.php" target="#nameserver_list">
+    <form method="post" action="request/send_email.php" target="#nameserver_list">
         <fieldset>
 
             <legend>DNS</legend>
@@ -138,7 +138,7 @@ require("post.php");
         </fieldset>
     </form>
 
-    <form method="post" action="command/send_code_by_email.php">
+    <form method="post" action="request/send_code_by_email.php">
         <fieldset>
             <legend>Verification</legend>
 

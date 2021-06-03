@@ -10,6 +10,22 @@ split JS files:
 
 + js.webportfolio.pl
 
+
+## Contribution
+
++ request - REST/POST/GET
+    + query - Read
+        + event create
+        
+    + command - Create Update Delete
+        + event create
+        + event use
+      
+    + model
+        + attribute
+    
+    
+
 # First Steps
 
 ## on linux
@@ -34,6 +50,10 @@ split JS files:
 
 ### open in browser
     .apicra\browser.bat
+
+
+Musi być czat do kontaktu z klientami, 
+jesli są jakieś problemy
 
 
 ---

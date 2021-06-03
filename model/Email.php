@@ -34,6 +34,7 @@ class Email
     }
 
     /**
+     * TODO: move to the class
      * Array with objects
      *
      * @param $array
