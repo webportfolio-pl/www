@@ -11,6 +11,19 @@ split JS files:
 + js.webportfolio.pl
 
 
+TODO:
++ czat do kontaktu z klientami, jesli są jakieś problemy
++ informations about it, faq, video example,
++ application deployment
++ make project for only php files to import them here php.webportfolio.pl
+    + attribute
+    + model
+    + command
+    + query
+    + event
+
++ only request and response are local, rest code is reusable
+
 ## Contribution
 
 + request - REST/POST/GET
@@ -52,8 +65,7 @@ split JS files:
     .apicra\browser.bat
 
 
-Musi być czat do kontaktu z klientami, 
-jesli są jakieś problemy
+
 
 
 ---
