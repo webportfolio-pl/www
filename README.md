@@ -1,5 +1,14 @@
 # www.webportfolio.pl
 
+# TODO:
+
+split php files to another projects for apifunc:
+
++ php.webportfolio.pl
+  
+split JS files:
+
++ js.webportfolio.pl
 
 # First Steps
 
@@ -26,8 +35,10 @@
 ### open in browser
     .apicra\browser.bat
 
+
 ---
 + [edit](https://github.com/webportfolio-pl/www/edit/main/README.md)
+
 ```
 https://github.com/webportfolio-pl/www.git
 ```

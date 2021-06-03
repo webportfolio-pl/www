@@ -14,8 +14,20 @@ require("post.php");
     <title>WebPortfolio.pl</title>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
     <link href="style.css" rel="stylesheet"/>
 
 </head>
@@ -25,7 +37,7 @@ require("post.php");
     <h1 class="center">WebPortfolio.pl</h1>
     <h2 class="small">Manage your all domains from many different registrar togheter</h2>
 
-    <form method="post">
+    <form method="post" action="domains.php" target="#nameserver_list">
         <fieldset>
 
             <legend>DNS</legend>
@@ -37,20 +49,29 @@ require("post.php");
             <br/>
             <br/>
 
-            <label for="change_dns">
+            <label for="dns_url_list">
                 2. Show url to panel where domain is registered:
             </label>
             <br/>
-            <input type="submit" name="change_dns" value="Show URLs to Change DNS" id="change_dns" class="btn btn-info btn-lg"/>
-            <br/>
-            <br/>
-            <?php
-            global $dns_url_list;
-            echo $dns_url_list;
-            ?>
+            <input type="submit" name="set_domain_list" id="set_domain_list" value="Show URLs to Change DNS"
+                   class="btn btn-info btn-lg"/>
             <br/>
 
+            <br/>
+        </fieldset>
+    </form>
 
+    <h2>NameServers</h2>
+    <div id="nameserver_list">
+        <ul>
+            <li>
+                <?php echo $_POST["domains"] ?>
+            </li>
+        </ul>
+    </div>
+
+    <form method="post" action="query/dns_url_list.php">
+        <fieldset>
             <label>
                 3. Set NameServers for your domains
             </label>
@@ -107,8 +128,19 @@ require("post.php");
 
             <br/>
             <br/>
+            <?php
+            global $dns_url_list;
+            echo $dns_url_list;
+            ?>
+            <br/>
 
-            <legend>VERIFICATION</legend>
+
+        </fieldset>
+    </form>
+
+    <form method="post" action="command/send_code_by_email.php">
+        <fieldset>
+            <legend>Verification</legend>
 
 
             <label for="email">
@@ -120,15 +152,25 @@ require("post.php");
             <br/>
 
 
-            <label for="send">
+        </fieldset>
+    </form>
+
+    <form method="post" action="command/verify_code.php">
+        <fieldset>
+
+            <label for="send_code_by_email">
                 5. Receive Email with code:
             </label>
             <br/>
-            <input type="submit" name="send" id="send" value="Receive E-Mail" class="btn btn-info btn-lg"/>
+            <input type="submit" name="send_code_by_email" id="send_code_by_email" value="Receive E-Mail"
+                   class="btn btn-info btn-lg"/>
             <br/>
             <br/>
 
-
+        </fieldset>
+    </form>
+    <form method="post" action="command/verify_code.php">
+        <fieldset>
             <label for="code">
                 6. Enter Code from Email:
             </label>
@@ -136,10 +178,16 @@ require("post.php");
             <input type="text" id="code" name="code" value="<?php echo $_POST["code"]; ?>">
             <br/>
 
-            <input type="submit" name="verification" value="Verify Code" id="verification" class="btn btn-info btn-lg"/>
+            <input type="submit" name="verify_code" value="Verify Code" id="verify_code" class="btn btn-info btn-lg"/>
             <!--            <input type="submit" name="monitoring" value="monitoring" id="monitoring" class="btn btn-info btn-lg"/>-->
             <br/>
             <br/>
+
+        </fieldset>
+    </form>
+
+    <form method="post" action="query/monitoring.php">
+        <fieldset>
 
             <legend>MONITORING</legend>
 
@@ -147,7 +195,10 @@ require("post.php");
                 7. Show status of domains:
             </label>
             <br/>
-
+            <input type="submit" name="monitoring" value="monitoring" id="monitoring" class="btn btn-info btn-lg"/>
+            <!--            <input type="submit" name="monitoring" value="monitoring" id="monitoring" class="btn btn-info btn-lg"/>-->
+            <br/>
+            <br/>
 
         </fieldset>
 
