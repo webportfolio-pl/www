@@ -1,5 +1,28 @@
 # www.webportfolio.pl
 
+## Zadanie główne
+
++ zarządzanie domenami poprzez wpisy DNS
+  + poprzez przypisanie nameserver do webportfolio.pl
+
++ monitorowanie domen
++ alerty bezpieczeństwa
++ wykrywanie reguł i informowanie o zdarzeniach
+
+## Możliwa automatyzacja zadań:
++ warunki, jeśli zostanie wykryta jakaś reguła w zalezności od awartości:
+  + domena
+    + provider
+    + whois
+    + transfer
+    + email
+    + dane, privacy
+  + server
+    + restart
+  + wpis DNS
+    + white, blacklist
+  + dostępność
+
 # TODO:
 
 split php files to another projects for apifunc:
@@ -11,11 +34,11 @@ split JS files:
 + js.webportfolio.pl
 
 
-TODO:
+### TODO:
 + czat do kontaktu z klientami, jesli są jakieś problemy
 + informations about it, faq, video example,
 + application deployment
-+ make project for only php files to import them here php.webportfolio.pl
++ make project only for php files to import them from php.webportfolio.pl
     + attribute
     + model
     + command
@@ -23,6 +46,26 @@ TODO:
     + event
 
 + only request and response are local, rest code is reusable
+
++ hurtowa zmiana:
+    + DNS
+    + recordy
+    
++ hurtowy transfer od różnych registrarów
+
+
+### deploy
+
++ .apifunc as a cloud service, build functionality in the fly, deploy it + hash + cname
+    + monitoring, check sourcode, cache it
+www.cloud.apifunc.com
+    username.cloud.apifunc.com
+        php.apifunc.com
+      
++ Oferta 1 abo, vps for deploy -> softreck.cloud
+  
+
+
 
 ## Contribution
 
@@ -39,15 +82,12 @@ TODO:
     
     
 
-# First Steps
+# First Steps with .apicra
 
 ## on linux
 
 ### install
     sh .apicra/install
-
-### start
-    sh .apicra/start
 
 ### open in browser
     sh .apicra/browser
@@ -55,14 +95,17 @@ TODO:
 ## on windows
 
 ### install
-    .apicra\install.bat
+    .apibuild\\install.bat
+
+### build
+    .apifunc\\download.bat
+    .apifunc\\delete.bat
 
 ### start
-    .apicra\start.bat
-
+    .apiexec\\start.bat
 
 ### open in browser
-    .apicra\browser.bat
+    .apicra\\browser.bat
 
 
 
